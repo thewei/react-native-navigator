@@ -41,17 +41,18 @@ import IndexPage from './pages/IndexPage';
 import DocPage from './pages/DocPage';
 import DocSection from './pages/DocSection';
 
+// Support params and query
 export default {
     '/': IndexPage,
-    '/doc': DocPage,
+    '/doc?sort=1': DocPage,
     '/doc/:id': DocSection
 };
 ```
-more example pleace check the example: `Example/index.ios.js`
+more example pleace checkout the example: `Example/index.ios.js`
 
 ## API
-LinkTo( path, props )
-Back()
+- LinkTo( path, props )
+- Back()
 
 ## Contributing
 - Fork this Repo first
