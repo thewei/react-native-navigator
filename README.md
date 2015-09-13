@@ -17,13 +17,6 @@ import React from 'react-native';
 import Router from 'react-native-navigator';
 import routes from './src/routes';
 
-var {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-} = React;
-
 var Example = React.createClass({
   render: function() {
     return (
