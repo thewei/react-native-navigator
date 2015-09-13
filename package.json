@@ -1,6 +1,6 @@
 {
     "name": "react-native-navigator",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "A simple router for react native",
     "main": "libs/index.js",
     "scripts": {
@@ -23,5 +23,9 @@
     "bugs": {
         "url": "https://github.com/thewei/react-native-navigator/issues"
     },
-    "homepage": "https://github.com/thewei/react-native-navigator#readme"
+    "homepage": "https://github.com/thewei/react-native-navigator#readme",
+    "dependencies": {
+        "path-to-regexp": "^1.2.1",
+        "urllite": "^0.5.0"
+    }
 }
