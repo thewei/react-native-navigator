@@ -1,6 +1,6 @@
 {
     "name": "react-native-navigator",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "description": "A simple router for react native",
     "main": "libs/index.js",
     "scripts": {
@@ -11,13 +11,17 @@
         "url": "git+https://github.com/thewei/react-native-navigator.git"
     },
     "keywords": [
-        "react",
+        "react-component",
         "react-native",
+        "ios",
+        "react",
         "react-native-navigator",
         "router",
-        "react-native-router",
-        "ios"
+        "react-native-router"
     ],
+    "peerDependencies": {
+        "react-native": ">=0.5"
+    },
     "author": "thewei",
     "license": "MIT",
     "bugs": {
