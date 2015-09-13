@@ -9,49 +9,49 @@ $ npm install react-native-navigator --save
 
 ## Example
 
+index.ios.js:
 ```js
 'use strict';
 
 import React from 'react-native';
-import ReactNativeNavigator from 'react-native-navigator';
+import Router from 'react-native-navigator';
+import routes from './src/routes';
 
-class ReactNativeComponent1 extends React.Component {
-    jumpOtherPage() {
-        ReactNativeNavigator.go('/user/2');
-    },
-    render(){
-        console.log(this.props); // You can get { route, navigator, query, params }
-        return (
-            <React.View style={{flex:1}}>
-                <React.TouchableOpacity
-                  onPress={this.jumpOtherPage.bind(this)}>
-                  <React.Text >jump to '/user/2'</React.Text>
-                </React.TouchableOpacity>
-            </React.View>
-        )
-    }
-}
+var {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+} = React;
 
-class App extends React.Component {
-    render(){
-        return (
-            <ReactNativeNavigator routes={routes} />
-        )
-    }
-}
+var Example = React.createClass({
+  render: function() {
+    return (
+      <Router routes={routes} />
+    );
+  }
+});
 
-const routes = {
-    '/': ReactNativeComponent1,
-    '/test': ReactNativeComponent2,
-    '/user/:userId': ReactNativeComponent3,
-    '/400': ReactNativeComponent4
-}
-
-React.AppRegistry.registerComponent('app', () => App);
+React.AppRegistry.registerComponent('Example', () => Example);
 ```
 
+routes.js:
+```js
+import IndexPage from './pages/IndexPage';
+import DocPage from './pages/DocPage';
+import DocSection from './pages/DocSection';
+
+export default {
+    '/': IndexPage,
+    '/doc': DocPage,
+    '/doc/:id': DocSection
+};
+```
+more example pleace check the example: `Example/index.ios.js`
+
 ## API
-check this file: `libs/index.js`
+LinkTo( path, props )
+Back()
 
 ## Contributing
 - Fork this Repo first

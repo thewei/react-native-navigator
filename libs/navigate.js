@@ -17,7 +17,8 @@ var Navigate = React.createClass({
 
     componentWillUnmount() {
       this._listeners && this._listeners.forEach(listener => listener.remove());
-      Event.off("RNnavigate.go");
+      Event.off("RNnavigate.LinkTo");
+      Event.off("RNnavigate.Back");
     },
 
     _parseUrl(path) {
@@ -48,7 +49,11 @@ var Navigate = React.createClass({
         this.state._routes.some(function(route) {
             var matches = route.pattern.exec(path);
 
-            if (matches && route.params[0].name!==0) {
+            if (matches) {
+                if(route.params[0] && route.params[0].name===0){
+                    return false;
+                }
+
                 matchedRoute.component = route.component;
 
                 let params = matches.slice(1, route.params.length + 1);
@@ -88,14 +93,14 @@ var Navigate = React.createClass({
 
         if (navigator) {
           var callback = (event) => {
-            console.log(
-              `ReactNativeNavigator: event ${event.type}`,
-              {
-                route: JSON.stringify(event.data.route),
-                target: event.target,
-                type: event.type,
-              }
-            );
+            // console.log(
+            //   `ReactNativeNavigator: event ${event.type}`,
+            //   {
+            //     route: JSON.stringify(event.data.route),
+            //     target: event.target,
+            //     type: event.type,
+            //   }
+            // );
           };
           // Observe focus change events from the owner.
           this._listeners = [
@@ -103,8 +108,15 @@ var Navigate = React.createClass({
             navigator.navigationContext.addListener('didfocus', callback),
           ];
 
-          Event.on("RNnavigate.go", function(path){
-              navigator.push({ id: path });
+          Event.on("RNnavigate.LinkTo", function(path, props){
+              navigator.push({
+                  id: path,
+                  props: props
+              });
+          });
+
+          Event.on("RNnavigate.Back", function(path){
+              navigator.pop();
           });
 
         }
@@ -112,17 +124,17 @@ var Navigate = React.createClass({
   },
 
     renderScene(route, nav) {
-        let url = this._parseUrl('/user/2' || route.id);
+        let url = this._parseUrl(route.id);
         let query = this._parseSearch(url.search);
         let matchedRoute = this._matchParams(url.pathname);
 
         if (matchedRoute) {
-            return React.createElement(matchedRoute.component,{
+            return React.createElement(matchedRoute.component,Object.assign( route.props || {}, {
                 route: route,
                 navigator: nav,
                 query: query,
                 params: matchedRoute.params
-            });
+            }));
         } else if(this.props.routes.hasOwnProperty('/400')) {
             return React.createElement(this.props.routes['/400'],{
                 route: route,
@@ -152,8 +164,12 @@ var Navigate = React.createClass({
 
 });
 
-Navigate.go = function(path){
-    Event.emit("RNnavigate.go",path);
+Navigate.LinkTo = function(path, props){
+    Event.emit("RNnavigate.LinkTo",path, props);
+};
+
+Navigate.Back = function(){
+    Event.emit("RNnavigate.Back");
 };
 
 const styles = {
