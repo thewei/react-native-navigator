@@ -1,6 +1,6 @@
 {
     "name": "react-native-navigator",
-    "version": "0.2.3",
+    "version": "0.3.0",
     "description": "A simple router for react native",
     "main": "libs/index.js",
     "scripts": {

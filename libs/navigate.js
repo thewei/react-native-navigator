@@ -17,8 +17,8 @@ var Navigate = React.createClass({
 
     componentWillUnmount() {
       this._listeners && this._listeners.forEach(listener => listener.remove());
-      Event.off("RNnavigate.LinkTo");
-      Event.off("RNnavigate.Back");
+      Event.off("RNnavigate.redirect");
+      Event.off("RNnavigate.back");
     },
 
     _parseUrl(path) {
@@ -108,15 +108,31 @@ var Navigate = React.createClass({
             navigator.navigationContext.addListener('didfocus', callback),
           ];
 
-          Event.on("RNnavigate.LinkTo", function(path, props){
-              navigator.push({
-                  id: path,
-                  props: props
-              });
+          Event.on("RNnavigate.redirect", function(path){
+              let info = {};
+              let replace = false;
+              if(typeof path === "object"){
+                  if (path.replace){
+                      delete path.replace;
+                      replace = true;
+                  }
+                  info = Object.assign({},path);
+              } else {
+                  info.id = path;
+              }
+
+              replace ? navigator.replace(info) : navigator.push(info);
           });
 
-          Event.on("RNnavigate.Back", function(path){
-              navigator.pop();
+          Event.on("RNnavigate.back", function(opts){
+              let info = {};
+              if(opts && typeof opts === "object"){
+                  if(opts.id==="/"){
+                      navigator.popToTop();
+                  }
+              }else{
+                   navigator.pop();
+              }
           });
 
         }
@@ -153,8 +169,8 @@ var Navigate = React.createClass({
                 initialRoute={{ path: "/", }}
                 renderScene={this.renderScene}
                 configureScene={(route) => {
-                  if (route.sceneConfig) {
-                    return route.sceneConfig;
+                  if (route.mode) {
+                    return Navigator.SceneConfigs[route.mode];
                   }
                   return Navigator.SceneConfigs.FloatFromRight;
                 }}
@@ -164,12 +180,12 @@ var Navigate = React.createClass({
 
 });
 
-Navigate.LinkTo = function(path, props){
-    Event.emit("RNnavigate.LinkTo",path, props);
+Navigate.redirect = function(path){
+    Event.emit("RNnavigate.redirect",path);
 };
 
-Navigate.Back = function(){
-    Event.emit("RNnavigate.Back");
+Navigate.back = function(opts){
+    Event.emit("RNnavigate.back", opts);
 };
 
 const styles = {

@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 import DocPage from './DocPage';
+import NavExamplePage from './NavExamplePage';
 var {
   StyleSheet,
   TabBarIOS,
@@ -11,18 +12,12 @@ var {
 } = React;
 
 var IndexPage = React.createClass({
-  statics: {
-    title: '<TabBarIOS>',
-    description: 'Tab-based navigation.',
-  },
 
   displayName: 'IndexPage',
 
   getInitialState: function() {
     return {
-      selectedTab: '1',
-      notifCount: 0,
-      presses: 0,
+      selectedTab: '1'
     };
   },
 
@@ -56,26 +51,29 @@ var IndexPage = React.createClass({
         </TabBarIOS.Item>
         <TabBarIOS.Item
           systemIcon="history"
-          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
           selected={this.state.selectedTab === '2'}
           onPress={() => {
             this.setState({
-              selectedTab: '2',
-              notifCount: this.state.notifCount + 1,
+              selectedTab: '2'
             });
           }}>
-          {this._renderContent('#783E33', 'Red Tab', this.state.notifCount)}
+          <NavigatorIOS
+              style={styles.container}
+              initialRoute={{
+                component: NavExamplePage,
+                title: 'Example'
+              }}
+            />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           systemIcon="more"
           selected={this.state.selectedTab === '3'}
           onPress={() => {
             this.setState({
-              selectedTab: '3',
-              presses: this.state.presses + 1
+              selectedTab: '3'
             });
           }}>
-          {this._renderContent('#21551C', 'Green Tab', this.state.presses)}
+          {this._renderContent('#21551C', 'Green Tab', 1)}
         </TabBarIOS.Item>
       </TabBarIOS>
     );

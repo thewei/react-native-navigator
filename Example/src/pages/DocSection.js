@@ -37,7 +37,7 @@ export default class DocSectionBox extends React.Component {
               passProps: this.props,
               leftButtonTitle: 'Back',
               onLeftButtonPress: () => {
-                Router.Back();
+                Router.back();
               },
             }}
           />

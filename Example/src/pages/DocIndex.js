@@ -71,7 +71,11 @@ export default class DocIndex extends React.Component {
   }
 
   selectRow(section) {
-      Router.LinkTo('/doc/' + section.id, section);
+      Router.redirect({
+          id: '/doc/' + section.id,
+          props: section,
+          mode: "FloatFromBottom"
+      });
   }
 
 }
