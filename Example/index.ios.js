@@ -11,7 +11,10 @@ import routes from './src/routes';
 var Example = React.createClass({
   render: function() {
     return (
-      <Router routes={routes} />
+      <Router
+          initRoute="/"
+          noFoundRoute="/400"
+          routes={routes} />
     );
   }
 });

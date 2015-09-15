@@ -74,7 +74,7 @@ export default class DocIndex extends React.Component {
       Router.redirect({
           id: '/doc/' + section.id,
           props: section,
-          mode: "FloatFromBottom"
+          mode: "FloatFromRight"
       });
   }
 

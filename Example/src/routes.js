@@ -7,7 +7,10 @@ var JumpingNavSample = require('./pages/JumpingNavSample');
 import NavSimpleExample from './pages/NavSimpleExample';
 
 export default {
-    '/': IndexPage,
+    '/': {
+        component: IndexPage,
+        title: "Documents"
+    },
     '/example/navbar-sample': NavigationBarSample,
     '/example/jumping-nav-sample': JumpingNavSample,
     '/example/breadcrumb-nav-sample': BreadcrumbNavSample,

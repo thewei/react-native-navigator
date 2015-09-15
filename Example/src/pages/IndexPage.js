@@ -6,7 +6,6 @@ import NavExamplePage from './NavExamplePage';
 var {
   StyleSheet,
   TabBarIOS,
-  NavigatorIOS,
   Text,
   View,
 } = React;
@@ -41,12 +40,8 @@ var IndexPage = React.createClass({
               selectedTab: '1',
             });
           }}>
-          <NavigatorIOS
+          <DocPage
               style={styles.container}
-              initialRoute={{
-                component: DocPage,
-                title: 'Documents'
-              }}
             />
         </TabBarIOS.Item>
         <TabBarIOS.Item
@@ -57,12 +52,8 @@ var IndexPage = React.createClass({
               selectedTab: '2'
             });
           }}>
-          <NavigatorIOS
+          <NavExamplePage
               style={styles.container}
-              initialRoute={{
-                component: NavExamplePage,
-                title: 'Example'
-              }}
             />
         </TabBarIOS.Item>
         <TabBarIOS.Item

@@ -29,6 +29,51 @@ var {
 } = React;
 
 var cssVar = require('cssVar');
+var styles = StyleSheet.create({
+  messageText: {
+    fontSize: 17,
+    fontWeight: '500',
+    padding: 15,
+    marginTop: 50,
+    marginLeft: 15,
+  },
+  button: {
+    backgroundColor: 'white',
+    padding: 15,
+    borderBottomWidth: 1 / PixelRatio.get(),
+    borderBottomColor: '#CDCDCD',
+  },
+  buttonText: {
+    fontSize: 17,
+    fontWeight: '500',
+  },
+  navBar: {
+    backgroundColor: 'white',
+  },
+  navBarText: {
+    fontSize: 16,
+    marginVertical: 10,
+  },
+  navBarTitleText: {
+    color: cssVar('fbui-bluegray-60'),
+    fontWeight: '500',
+    marginVertical: 9,
+  },
+  navBarLeftButton: {
+    paddingLeft: 10,
+  },
+  navBarRightButton: {
+    paddingRight: 10,
+  },
+  navBarButtonText: {
+    color: cssVar('fbui-accent-blue'),
+  },
+  scene: {
+    flex: 1,
+    paddingTop: 20,
+    backgroundColor: '#EAEAEA',
+  },
+});
 
 class NavButton extends React.Component {
   render() {
@@ -133,8 +178,22 @@ var NavigationBarSample = React.createClass({
 });
 **/
 
+// const routes = {
+//     '/': NavigationBarSampleBody,
+//     '/example/navbar-sample/body': NavigationBarSampleBody
+// }
 
-var NavigationBarSampleBody = React.createClass({
+// <Router
+//     navigationBar={
+//       <Navigator.NavigationBar
+//         routeMapper={NavigationBarRouteMapper}
+//         style={styles.navBar}
+//       />
+//     }
+//     routes={routes}
+// />
+
+var NavigationBarSample = React.createClass({
 
   render: function() {
     return (
@@ -162,73 +221,13 @@ var NavigationBarSampleBody = React.createClass({
 
 });
 
-const routes = {
-    '/': NavigationBarSampleBody,
-    '/example/navbar-sample/body': NavigationBarSampleBody
-}
+NavigationBarSample.navigationBar = (
+    <Navigator.NavigationBar
+      routeMapper={NavigationBarRouteMapper}
+      style={styles.navBar}
+    />
+)
 
-var NavigationBarSample = React.createClass({
 
-  render: function() {
-    return (
-        <Router
-            navigationBar={
-              <Navigator.NavigationBar
-                routeMapper={NavigationBarRouteMapper}
-                style={styles.navBar}
-              />
-            }
-            routes={routes}
-        />
-    );
-  },
-
-});
-
-var styles = StyleSheet.create({
-  messageText: {
-    fontSize: 17,
-    fontWeight: '500',
-    padding: 15,
-    marginTop: 50,
-    marginLeft: 15,
-  },
-  button: {
-    backgroundColor: 'white',
-    padding: 15,
-    borderBottomWidth: 1 / PixelRatio.get(),
-    borderBottomColor: '#CDCDCD',
-  },
-  buttonText: {
-    fontSize: 17,
-    fontWeight: '500',
-  },
-  navBar: {
-    backgroundColor: 'white',
-  },
-  navBarText: {
-    fontSize: 16,
-    marginVertical: 10,
-  },
-  navBarTitleText: {
-    color: cssVar('fbui-bluegray-60'),
-    fontWeight: '500',
-    marginVertical: 9,
-  },
-  navBarLeftButton: {
-    paddingLeft: 10,
-  },
-  navBarRightButton: {
-    paddingRight: 10,
-  },
-  navBarButtonText: {
-    color: cssVar('fbui-accent-blue'),
-  },
-  scene: {
-    flex: 1,
-    paddingTop: 20,
-    backgroundColor: '#EAEAEA',
-  },
-});
 
 module.exports = NavigationBarSample;
