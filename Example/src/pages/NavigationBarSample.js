@@ -90,6 +90,7 @@ function newRandomRoute() {
   };
 }
 
+/**
 var NavigationBarSample = React.createClass({
 
   render: function() {
@@ -126,6 +127,59 @@ var NavigationBarSample = React.createClass({
           />
         }
       />
+    );
+  },
+
+});
+**/
+
+
+var NavigationBarSampleBody = React.createClass({
+
+  render: function() {
+    return (
+        <ScrollView style={styles.scene}>
+          <Text style={styles.messageText}>123</Text>
+          <NavButton
+            onPress={() => {
+              this.props.navigator.immediatelyResetRouteStack([
+                newRandomRoute(),
+                newRandomRoute(),
+                newRandomRoute(),
+              ]);
+            }}
+            text="Reset w/ 3 scenes"
+          />
+          <NavButton
+            onPress={() => {
+              Router.back();
+            }}
+            text="Exit NavigationBar Example"
+          />
+        </ScrollView>
+    );
+  },
+
+});
+
+const routes = {
+    '/': NavigationBarSampleBody,
+    '/example/navbar-sample/body': NavigationBarSampleBody
+}
+
+var NavigationBarSample = React.createClass({
+
+  render: function() {
+    return (
+        <Router
+            navigationBar={
+              <Navigator.NavigationBar
+                routeMapper={NavigationBarRouteMapper}
+                style={styles.navBar}
+              />
+            }
+            routes={routes}
+        />
     );
   },
 

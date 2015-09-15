@@ -174,6 +174,7 @@ var Navigate = React.createClass({
                   }
                   return Navigator.SceneConfigs.FloatFromRight;
                 }}
+                {...this.props}
             />
         );
     }

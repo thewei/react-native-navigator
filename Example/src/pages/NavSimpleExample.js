@@ -44,17 +44,17 @@ class NavExamplePage extends React.Component {
         />
         <NavButton
           onPress={() => {
+            Router.back();
+          }}
+          text="Come Back"
+        />
+        <NavButton
+          onPress={() => {
               Router.back({
                   id: "/"
               });
           }}
-          text="Return Back HomePage"
-        />
-        <NavButton
-          onPress={() => {
-            Router.back();
-          }}
-          text="Return Back Example"
+          text="Come Back HomePage"
         />
       </ScrollView>
     );
