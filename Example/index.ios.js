@@ -5,18 +5,6 @@
 'use strict';
 
 import React from 'react-native';
-import Router from 'react-native-navigator';
-import routes from './src/routes';
+import App from './src/app';
 
-var Example = React.createClass({
-  render: function() {
-    return (
-      <Router
-          initRoute="/"
-          noFoundRoute="/400"
-          routes={routes} />
-    );
-  }
-});
-
-React.AppRegistry.registerComponent('Example', () => Example);
+React.AppRegistry.registerComponent('Example', () => App);
