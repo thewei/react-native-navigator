@@ -1,10 +1,10 @@
 {
   "name": "react-native-navigator",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A simple router for react native",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel src --watch --stage 0 --out-dir lib --source-maps"
+    "build": "babel src --watch --stage 0 --out-dir lib"
   },
   "repository": {
     "type": "git",
