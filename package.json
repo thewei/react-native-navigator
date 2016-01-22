@@ -4,7 +4,7 @@
     "description": "A simple router for react native",
     "main": "lib/index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "echo \"Error: no test specified\"",
         "watch": "babel src --watch --stage 0 --out-dir lib",
         "build": "babel src --stage 0 --out-dir lib"
     },
