@@ -1,5 +1,9 @@
-# react-native-navigator ![NPM version](https://img.shields.io/npm/v/react-native-navigator.svg?style=flat)
-a simple router for react native
+# react-native-navigator
+[![Build Status](https://travis-ci.org/thewei/react-native-navigator.svg?branch=master)](https://travis-ci.org/thewei/react-native-navigator)
+[![npm version](https://badge.fury.io/js/react-native-navigator.svg)](http://badge.fury.io/js/react-native-navigator)
+[![NPM downloads](http://img.shields.io/npm/dm/react-native-store.svg?style=flat-square)](https://npmjs.org/package/react-native-navigator)
+
+A web like router for ReactNative
 
 ## Installation
 
@@ -10,7 +14,7 @@ $ npm install react-native-navigator --save
 ## Example
 
 index.ios.js:
-```js
+```javascript
 'use strict';
 
 import React from 'react-native';
@@ -20,7 +24,7 @@ React.AppRegistry.registerComponent('Example', () => App);
 ```
 
 app.js:
-```js
+```javascript
 import React from 'react-native';
 import Navigator from 'react-native-navigator';
 const {
@@ -68,16 +72,3 @@ more example pleace checkout the example: `Example/index.ios.js`
 - Make sure your features are fully tested
 - Publish your local branch, Open a pull request
 - Enjoy hacking <3
-
-## MIT license
-Copyright (c) 2015 thewei
-
-Permission is hereby granted, free of charge, to any person obtaining a copy<br>of this software and associated documentation files (the "Software"), to deal<br>in the Software without restriction, including without limitation the rights<br>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>copies of the Software, and to permit persons to whom the Software is<br>furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in<br>all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR<br>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,<br>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE<br>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER<br>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,<br>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN<br>THE SOFTWARE.
-
---------------------------------------------------------------------------------
-
-![docor]()<br>built upon love by [docor](git+https://github.com/turingou/docor.git) v0.3.0
