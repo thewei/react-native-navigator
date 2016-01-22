@@ -1,38 +1,41 @@
 {
-  "name": "react-native-navigator",
-  "version": "0.4.2",
-  "description": "A simple router for react native",
-  "main": "lib/index.js",
-  "scripts": {
-    "build": "babel src --watch --stage 0 --out-dir lib"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thewei/react-native-navigator.git"
-  },
-  "keywords": [
-    "react-component",
-    "react-native",
-    "ios",
-    "react",
-    "react-native-navigator",
-    "router",
-    "react-native-router"
-  ],
-  "peerDependencies": {
-    "react-native": ">=0.5"
-  },
-  "author": "thewei",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/thewei/react-native-navigator/issues"
-  },
-  "homepage": "https://github.com/thewei/react-native-navigator#readme",
-  "dependencies": {
-    "path-to-regexp": "^1.2.1",
-    "urllite": "^0.5.0"
-  },
-  "devDependencies": {
-    "babel": "^5.8.23"
-  }
+    "name": "react-native-navigator",
+    "version": "0.4.2",
+    "description": "A simple router for react native",
+    "main": "lib/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "watch": "babel src --watch --stage 0 --out-dir lib",
+        "build": "babel src --stage 0 --out-dir lib"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/thewei/react-native-navigator.git"
+    },
+    "keywords": [
+        "react-component",
+        "react-native",
+        "android",
+        "ios",
+        "react",
+        "react-native-navigator",
+        "router",
+        "react-native-router"
+    ],
+    "peerDependencies": {
+        "react-native": ">=0.5"
+    },
+    "author": "thewei",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/thewei/react-native-navigator/issues"
+    },
+    "homepage": "https://github.com/thewei/react-native-navigator#readme",
+    "dependencies": {
+        "path-to-regexp": "^1.2.1",
+        "urllite": "^0.5.0"
+    },
+    "devDependencies": {
+        "babel": "^5.8.23"
+    }
 }
