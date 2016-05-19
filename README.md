@@ -1,7 +1,7 @@
 # react-native-navigator
 [![Build Status](https://travis-ci.org/thewei/react-native-navigator.svg?branch=master)](https://travis-ci.org/thewei/react-native-navigator)
 [![npm version](https://badge.fury.io/js/react-native-navigator.svg)](http://badge.fury.io/js/react-native-navigator)
-[![NPM downloads](http://img.shields.io/npm/dm/react-native-store.svg?style=flat-square)](https://npmjs.org/package/react-native-navigator)
+[![NPM downloads](http://img.shields.io/npm/dm/react-native-navigator.svg?style=flat-square)](https://npmjs.org/package/react-native-navigator)
 
 A web like router for ReactNative
 
